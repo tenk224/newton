@@ -489,8 +489,8 @@ metadata_proxy_shared_secret = 123456" /etc/neutron/metadata_agent.ini
 sed -i "/^\[neutron\]$/a url = http://controller:9696\n\
 auth_url = http://controller:35357\n\
 auth_type = password\n\
-project_domain_name = default\n\
-user_domain_name = default\n\
+project_domain_name = Default\n\
+user_domain_name = Default\n\
 region_name = RegionOne\n\
 project_name = service\n\
 username = neutron\n\
@@ -511,6 +511,3 @@ neutron-metadata-agent.service
 systemctl start neutron-server.service \
 neutron-linuxbridge-agent.service neutron-dhcp-agent.service \
 neutron-metadata-agent.service
-#----------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------
