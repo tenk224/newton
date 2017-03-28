@@ -1,6 +1,6 @@
 #!/bin/bash
 
-setenforce 0
+
 sed -i 's/=enforcing/=disabled/g' /etc/sysconfig/selinux
 systemctl stop firewalld
 systemctl disable firewalld
@@ -16,7 +16,7 @@ sed -i 's/5/0/g' /etc/default/grub
 
 grub2-mkconfig -o /boot/grub2/grub.cfg
 
-yum install centos-release-openstack-newton -y
-yum upgrade -y
-yum install python-openstackclient \
-openstack-selinux -y
+#yum install centos-release-openstack-newton -y
+#yum upgrade -y
+#yum install python-openstackclient \
+#openstack-selinux -y
