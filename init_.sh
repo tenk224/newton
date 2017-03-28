@@ -20,5 +20,3 @@ yum install centos-release-openstack-newton -y
 yum upgrade -y
 yum install python-openstackclient \
 openstack-selinux -y
-
-reboot
