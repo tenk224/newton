@@ -38,7 +38,7 @@ sed -i "/^\[libvirt\]$/a virt_type = qemu" /etc/nova/nova.conf
 systemctl enable libvirtd.service openstack-nova-compute.service
 systemctl start libvirtd.service openstack-nova-compute.service
 #----------------------------------------------------------------------------------
-sed -i "/^\[DEFAULT\]$/a vtransport_url = rabbit://openstack:123456@controller\n\
+sed -i "/^\[DEFAULT\]$/a transport_url = rabbit://openstack:123456@controller\n\
 auth_strategy = keystone" /etc/neutron/neutron.conf
 
 sed -i "/^\[keystone_authtoken\]$/a auth_uri = http://controller:5000\n\
