@@ -422,30 +422,30 @@ openstack-nova-conductor.service openstack-nova-novncproxy.service
 #----------------------------------------------------------------------------------
 sed -i "/^\[database\]$/a connection = mysql+pymysql://neutron:123456@controller/neutron" /etc/neutron/neutron.conf
 
-sed -i "/^\[DEFAULT\]$/a core_plugin = ml2
-service_plugins =
-transport_url = rabbit://openstack:123456@controller
-auth_strategy = keystone
-notify_nova_on_port_status_changes = True
+sed -i "/^\[DEFAULT\]$/a core_plugin = ml2\n\
+service_plugins =\n\
+transport_url = rabbit://openstack:123456@controller\n\
+auth_strategy = keystone\n\
+notify_nova_on_port_status_changes = True\n\
 notify_nova_on_port_data_changes = True" /etc/neutron/neutron.conf
 
-sed -i "/^\[keystone_authtoken\]$/a auth_uri = http://controller:5000
-auth_url = http://controller:35357
-memcached_servers = controller:11211
-auth_type = password
-project_domain_name = Default
-user_domain_name = Default
-project_name = service
-username = neutron
+sed -i "/^\[keystone_authtoken\]$/a auth_uri = http://controller:5000\n\
+auth_url = http://controller:35357\n\
+memcached_servers = controller:11211\n\
+auth_type = password\n\
+project_domain_name = Default\n\
+user_domain_name = Default\n\
+project_name = service\n\
+username = neutron\n\
 password = 123456" /etc/neutron/neutron.conf
 
-sed -i "/^\[nova\]$/a auth_url = http://controller:35357
-auth_type = password
-project_domain_name = Default
-user_domain_name = Default
-region_name = RegionOne
-project_name = service
-username = nova
+sed -i "/^\[nova\]$/a auth_url = http://controller:35357\n\
+auth_type = password\n\
+project_domain_name = Default\n\
+user_domain_name = Default\n\
+region_name = RegionOne\n\
+project_name = service\n\
+username = nova\n\
 password = 123456" /etc/neutron/neutron.conf
 
 sed -i "/^\[oslo_concurrency\]$/a lock_path = /var/lib/neutron/tmp" /etc/neutron/neutron.conf
