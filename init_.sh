@@ -2,6 +2,7 @@
 
 
 sed -i 's/=enforcing/=disabled/g' /etc/sysconfig/selinux
+sed -i 's/=enforcing/=disabled/g' /etc/selinux/config
 systemctl stop firewalld
 systemctl disable firewalld
 systemctl stop NetworkManager
